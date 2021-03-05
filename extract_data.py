@@ -1,5 +1,6 @@
 import hashlib
 import pymongo
+import sys
 import pandas as pd
 
 # hashlib.md5(name.encode()).hexdigest()
@@ -68,7 +69,7 @@ def decode_users(file_name):
 
 
 if __name__ == '__main__':
-	filename = 'э205.xlsx'
+	filename = sys.argv[1]
 	# write_users(filename)
 	# hash_our_users()
 	# hash_table_users('res_' + filename)
