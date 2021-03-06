@@ -85,6 +85,8 @@ if __name__ == '__main__':
 	# hash_our_users()
 	# hash_table_users('res_' + filename)
 	# print('2 cont')
+	if 'rdy' not in os.listdir('./saved/'):
+		os.mkdir('./saved/rdy')
 	for i in os.listdir('./saved/'):
 		print(i)
 		decode_users(i)
