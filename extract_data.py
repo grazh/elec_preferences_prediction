@@ -72,7 +72,7 @@ def hash_table_users(file_name):
 
 def decode_users(file_name):
 	users = list(cacs_api.users.find({'role': 'student'}))
-	df = pd.read_excel('./saved/' + file_name, index_col='Unnamed: 0')
+	df = pd.read_excel('./saved/' + file_name, index_col='Unnamed: 0', engine='openpyxl')
 	df['name'] = df.apply(lambda x: [i for i in users if str(i['hash']) == str(x['hash'])][0]['name'], axis=1)
 	df.to_excel('saved/rdy/' + 'result_' + file_name)
 
@@ -88,6 +88,7 @@ if __name__ == '__main__':
 	if 'rdy' not in os.listdir('./saved/'):
 		os.mkdir('./saved/rdy')
 	for i in os.listdir('./saved/'):
-		print(i)
-		decode_users(i)
+		if i != 'rdy':
+			print(i)
+			decode_users(i)
 	# print('rdy')
