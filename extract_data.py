@@ -1,14 +1,12 @@
+import os
+import sys
 import hashlib
 import pymongo
-import sys
-import os
 import pandas as pd
+from decouple import config
 
-# hashlib.md5(name.encode()).hexdigest()
 
-client = pymongo.MongoClient(
-    'mongodb+srv://CacsMaster:T99bxZ9cvOjz409O@cacsws.7tsho.mongodb.net/cacsws?retryWrites=true&w=majority')
-db = client['cacs']
+client = pymongo.MongoClient(config('DB_ADDRESS'))
 cacs_api = client['cacs_api']
 
 
@@ -18,12 +16,9 @@ def write_users(file_name):
 	result = pd.DataFrame()
 
 	df.columns = ['name', 'time', 'audit', 'form', 'mark', 'mark_text', 'date', 'empt', 'descr']
-	print(df)
 	last_line = df.shape[0]
-	print(last_line)
 	samp = list(df['name'][df['name'] == 'Фамилия, имя, отчество'].index)
 	samp.append(last_line)
-	# print(samp)
 
 	for i in range(len(samp) - 1):
 		try:
@@ -46,7 +41,7 @@ def write_users(file_name):
 		except Exception as e:
 			print(e)
 			pass
-	result.to_excel('res_'+file_name)
+	result.to_excel('./saved/res_'+file_name)
 	return 1
 
 
@@ -62,33 +57,26 @@ def hash_our_users():
 		cacs_api.users.update_one(i, {'$set': {'hash': hashlib.md5(name.encode()).hexdigest()}})
 
 
-def hash_table_users(file_name):
-	df = pd.read_excel(file_name, index_col='Unnamed: 0')
+def hash_table_users(path, file_name):
+	df = pd.read_excel(path+file_name, index_col='Unnamed: 0')
 	df['short_name'] = df.apply(axis=1, func=lambda x: x['user'].split()[0] + ' ' + x['user'].split()[1][0] + '.' + x['user'].split()[2][0] + '.' if len(x['user'].split()) > 2 else x['user'].split()[0] + ' ' + x['user'].split()[1][0] + '.')
 	df['hash'] = df.apply(axis=1, func=lambda x: hashlib.md5(x['short_name'].encode()).hexdigest())
 	df.drop(['user', 'short_name'], axis=1, inplace=True)
-	df.to_excel('saved/hash_' + file_name)
+	df.to_excel('./saved/hash_' + file_name)
 
 
 def decode_users(file_name):
 	users = list(cacs_api.users.find({'role': 'student'}))
-	df = pd.read_excel('./saved/' + file_name, index_col='Unnamed: 0', engine='openpyxl')
+	df = pd.read_excel('./saved/hash_res_' + file_name, index_col='Unnamed: 0')
 	df['name'] = df.apply(lambda x: [i for i in users if str(i['hash']) == str(x['hash'])][0]['name'], axis=1)
-	df.to_excel('saved/rdy/' + 'result_' + file_name)
+	df.to_excel('./saved/rdy/' + 'result_' + file_name)
 
 
 if __name__ == '__main__':
-	# filename = sys.argv[1]
-	# print('start')
-	# write_users(filename)
-	# print('1 cont')
+	filename = sys.argv[1]
+	write_users(filename)
 	# hash_our_users()
-	# hash_table_users('res_' + filename)
-	# print('2 cont')
+	hash_table_users('./saved/', 'res_' + filename)
 	if 'rdy' not in os.listdir('./saved/'):
 		os.mkdir('./saved/rdy')
-	for i in os.listdir('./saved/'):
-		if i != 'rdy':
-			print(i)
-			decode_users(i)
-	# print('rdy')
+	decode_users(filename)
