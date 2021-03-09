@@ -8,6 +8,7 @@ from decouple import config
 
 client = pymongo.MongoClient(config('DB_ADDRESS'))
 cacs_api = client['cacs_api']
+sole = config('SOLE')
 
 
 def write_users(file_name):
@@ -50,33 +51,39 @@ def hash_our_users():
 	for i in users:
 		name = i['name'].split()
 		if len(name) > 2:
-			name = name[0] + ' ' + name[1][0] + '.' + name[2][0] + '.'
+			name = name[0] + ' ' + name[1] + name[2] + sole
 		else:
-			name = name[0] + ' ' + name[1][0] + '.'
+			name = name[0] + ' ' + name[1][0] + sole
 		print('(', users.index(i)+1, '/', len(users), ')', ' ', name, sep='')
 		cacs_api.users.update_one(i, {'$set': {'hash': hashlib.md5(name.encode()).hexdigest()}})
 
 
 def hash_table_users(path, file_name):
 	df = pd.read_excel(path+file_name, index_col='Unnamed: 0')
-	df['short_name'] = df.apply(axis=1, func=lambda x: x['user'].split()[0] + ' ' + x['user'].split()[1][0] + '.' + x['user'].split()[2][0] + '.' if len(x['user'].split()) > 2 else x['user'].split()[0] + ' ' + x['user'].split()[1][0] + '.')
+	df['short_name'] = df.apply(axis=1, func=lambda x: x['user'].split()[0] + ' ' + x['user'].split()[1] + x['user'].split()[2] + sole if len(x['user'].split()) > 2 else x['user'].split()[0] + ' ' + x['user'].split()[1] + sole)
 	df['hash'] = df.apply(axis=1, func=lambda x: hashlib.md5(x['short_name'].encode()).hexdigest())
 	df.drop(['user', 'short_name'], axis=1, inplace=True)
 	df.to_excel('./saved/hash_' + file_name)
 
 
-def decode_users(file_name):
+def decode_users(file_name, path='./saved/hash_res_'):
 	users = list(cacs_api.users.find({'role': 'student'}))
-	df = pd.read_excel('./saved/hash_res_' + file_name, index_col='Unnamed: 0')
+	df = pd.read_excel(path + file_name, index_col='Unnamed: 0')
 	df['name'] = df.apply(lambda x: [i for i in users if str(i['hash']) == str(x['hash'])][0]['name'], axis=1)
-	df.to_excel('./saved/rdy/' + 'result_' + file_name)
+	# df.to_excel('./saved/rdy/' + 'result_' + file_name)
+	print('.'+file_name.split('.')[1]+'_res'+'.xlsx')
+	df.to_excel('.'+file_name.split('.')[1]+'_res'+'.xlsx')
 
 
 if __name__ == '__main__':
-	filename = sys.argv[1]
-	write_users(filename)
+	# filename = sys.argv[1]
 	# hash_our_users()
-	hash_table_users('./saved/', 'res_' + filename)
-	if 'rdy' not in os.listdir('./saved/'):
-		os.mkdir('./saved/rdy')
-	decode_users(filename)
+	# if 'rdy' not in os.listdir('./saved/'):
+	# 	os.mkdir('./saved/rdy')
+	decode_users('./saved/with_ekm/result.xlsx', '')
+
+	for filename in list(map(lambda x: str(x) + '.xlsx', list(range(301, 313)))):
+		print(filename)
+		write_users(filename)
+		hash_table_users('./saved/', 'res_' + filename)
+		decode_users(filename)
