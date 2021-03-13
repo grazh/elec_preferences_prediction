@@ -8,7 +8,20 @@
 - to investigate the influence of a student's academic results on his choice of the course "Econometrics-2".
 
 ### Desription
-We data on students' success in mathematical disciplines that are compulsory for all students, and that can influence the choice of the course "Econometrics-2" by the student. In addition, number of group and the number of retakes variables were selected as parameters reflecting the general attitude towards the student's studies throughout the entire period of study.
-В файле students_data.xlsx имеются следующие данные о 253 студентах третьего курса экономического факультета: birth — год рождения студента, contract — бинарная переменная, равная единице для студентов обучающихся на платной основе и нулю для бюджетников, group — номер группы, retest — количество пересдач студента по всем пройденным дисциплинам за всё время обучения, linal1 — оценка студента по курсу «Линейная алгебра-1», terver — оценка студента по курсу «Теория вероятностей», matstat — оценка студента по курсу «Математическая статистика», ecm1— оценка студента по курсу «Эконометрика-1», и ecm2 — бинарная переменная, равная единице для студентов записанных на курс «Эконометрика-2» и нулю для остальных.
-Все данные о студентах предоставлены администрацией экономического факультета МГУ в условиях строгой конфиденциальности.
-Начнем с предварительного анализа данных. В табл. 1 представлены описательные статистики для анализируемых переменных.
+We collected data on students' success in mathematical disciplines that are compulsory for all students, and that can influence the choice of the course "Econometrics-2" by the student. In addition, number of group and the number of retest variables were selected as parameters reflecting the general attitude towards the student's studies throughout the entire period of study.
+
+### Files content
+* /eda/student_data.xlsx - contains data about 253 third year students of the Faculty of Economics.
+- birth - factor variable for birth date,
+- contract - binary for paid-for education,
+- group - factor var. for student's group,
+- linal1 - factor var. for Linear algebra-I score,
+- terver - factor var. for Probability theory score,
+- matstat - factor var. for Mathematical statistics score,
+- ecm1 - factor var. for Econometrics-I score,
+- ecm2 - binary for Econometrics-II enrollment.
+All data was collected with the help of Administration of the Faculty of Economics on the condition of preserving the confidential information of students.
+
+### Exploratory Data Analysis
+![image](https://user-images.githubusercontent.com/55653514/111038709-7e30db00-843b-11eb-968b-76288c0af599.png)
+
