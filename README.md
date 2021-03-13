@@ -24,12 +24,31 @@ We collected data on students' success in mathematical disciplines that are comp
 All data was collected with the help of Administration of the Faculty of Economics on the condition of preserving the confidential information of students.
 
 ### Exploratory Data Analysis
+
 Let's study the descriptive statistics. (Table 1)
 
-![image](https://user-images.githubusercontent.com/55653514/111038709-7e30db00-843b-11eb-968b-76288c0af599.png)
+<text align="center" font=30>
+  <img width="1000" height="900" src="https://user-images.githubusercontent.com/55653514/111038709-7e30db00-843b-11eb-968b-76288c0af599.png">
+</text>
 
 We can see that it's about 40% of students who've chosen Econometrics-II. 30% of students pay for the education and mean number of retests is 3.6 with the maximum of 28 retakes.
 
-Now we can analyse correlation matrix.
+Now we can analyse correlation matrix (Plot 1).
 
-![image](https://user-images.githubusercontent.com/55653514/111039765-c8688b00-8440-11eb-9e5b-d8412600c8d8.png)
+<p align="center">
+  <img width="1000" height="900" src="https://user-images.githubusercontent.com/55653514/111039765-c8688b00-8440-11eb-9e5b-d8412600c8d8.png">
+</p>
+
+It's shown that Econometrics-I score is highly correlated with the Econometrics-II enrollment. Also we can see group number negative correlation with academic performance just like with the choice of "Econometrics-2".
+
+<p align="right">
+  Plot 2
+</p>
+
+
+<p align="center">
+  Enrollment distribution
+</p>
+
+![image](https://github.com/grazh/elec_preferences_prediction/blob/master/plots/ecm1_mark.png)
+
