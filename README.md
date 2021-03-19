@@ -27,9 +27,9 @@ All data was collected with the help of Administration of the Faculty of Economi
 
 Let's study the descriptive statistics. (Table 1)
 
-<text align="center" font=30>
+<p align="center">
   <img width="1000" height="900" src="https://user-images.githubusercontent.com/55653514/111038709-7e30db00-843b-11eb-968b-76288c0af599.png">
-</text>
+</p>
 
 We can see that it's about 40% of students who've chosen Econometrics-II. 30% of students pay for the education and mean number of retests is 3.6 with the maximum of 28 retakes.
 
@@ -52,3 +52,13 @@ It's shown that Econometrics-I score is highly correlated with the Econometrics-
 
 ![image](https://github.com/grazh/elec_preferences_prediction/blob/master/plots/ecm1_mark.png)
 
+Now let's study ***Plot 2***. We can see the distribution of Econometrics-I score of students who signed up for Econometrics-II. After studying both graphs we note that a noticeably larger number of enrolled students have excellent grades, meanwhile other group of students has worse grades. So, we can claim that Econometrics-I grade is correlated with econometrics-II enrollment.
+
+The next step is to the relationship between paid and budgetary forms of education, a student's group and his enrollment in the course "Econometrics-2". ***Plot 3*** shows two graphs: on the left for students on a paid basis of education and budgetary on the right. The y-axis represents the average grade for Mathematical statistics, Linear algebra-I, Probability theory and Econometrics-I. The x-axis represents the group number of a student. Markers are red for students who enrolled for Econometrics-II and blue for others. Markers alpha is 50%, so more intense crosses report about bigger number of students. After studying the figure we can note that the majority of contract students did not sign up for Econometrics-II. Also let's note that red crosses saturation is higher in the top left for budget students. At the same time blue crosses are more intense in lower right. That means that students with higher average grade from groups 301-305 are more likely to enroll for Econometrics-II than students from other groups.
+
+
+<p align="center">
+  <img width="1000" height="900" src="https://github.com/grazh/elec_preferences_prediction/blob/master/plots/contract_means.png">
+</p>
+
+![image](https://github.com/grazh/elec_preferences_prediction/blob/master/plots/contract_means.png)
