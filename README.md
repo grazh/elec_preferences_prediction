@@ -74,3 +74,5 @@ Finally, we can study the grades that students who enrolled for Econometrics-II 
 </p>
 
 ![image](https://github.com/grazh/elec_preferences_prediction/blob/master/plots/parallel.jpg)
+
+You can see all the code for graphs and tables in ~/eda/python_eda.ipynb. It was the exploratory part of our research, now we are thinking about further investigation and building models.
