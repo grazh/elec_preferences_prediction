@@ -67,5 +67,14 @@ The next step is to study the relationship between paid and budgetary forms of e
 ![image](https://github.com/grazh/elec_preferences_prediction/blob/master/plots/contract_means.png)
 
 
-Finally, we can study the grades that students who enrolled for Econometrics-II get earlier in the university, they are marked in red in the ***Plot 4***, and student's who didn't enroll for Ecm-II are blue. There are parallel axes in this figure from left to right: the binary for Econometrics-II enrollment which is 6 for enrolled and 2 for others (for clarity), the Econometrics-I grade, the Linear algebra grade, the Mathematical statistics grade, the Probability theory grade and binary for form of education which is 6 for budget form and 2 for paid. It can be seen on the figure, that top part that matches high grades in subjects is predominantly red, that means that almost all excelent students enroll for Econometrics-2. At the same time the bottom part of the picture is 
-в то же время низы графика – синие, то есть большая часть «троечников» не записывается на интересующий нас курс. По графику сложно выделить хороший критерий разбиения, однако мы в очередной раз убедились, что среди студентов платной формы обучения очень малая доля записывается на «Эконометрику-2». Также можно предположить, что оценка 4 и 5 по «Линейной алгебре-1» хороший критерий для выделения студентов, которые записались на курс «Эконометрика-2».
+Finally, we can study the grades that students who enrolled for Econometrics-II get earlier in the university, they are marked in red in the ***Plot 4***, and student's who didn't enroll for Ecm-II are blue. There are parallel axes in this figure from left to right: the binary for Econometrics-II enrollment which is 6 for enrolled and 2 for others (for clarity), the Econometrics-I grade, the Linear algebra grade, the Mathematical statistics grade, the Probability theory grade and binary for form of education which is 6 for budget form and 2 for paid. It can be seen on the figure, that top part that matches high grades in subjects is predominantly red, that means that almost all excelent students enroll for Econometrics-2. At the same time, the bottom part of the picture is predominantly blue, meaning that students with bad marks are more unlikely to enroll for Econometrics-II. It's hard to point out a good separation criterion, nevertheless we have seen that a small percentage of contract students has enrolled for Econometrics-II. Also we can assume that 4-5 score for Linear algebra is a good criterion for distinguishing students who has enrolled for the course we are interested in.
+
+<p align="right">
+  Plot 4
+</p>
+
+<p align="center">
+  Parallel coordinates
+</p>
+
+![image](https://github.com/grazh/elec_preferences_prediction/blob/master/plots/parallel.jpg)
