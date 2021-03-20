@@ -73,8 +73,4 @@ Finally, we can study the grades that students who enrolled for Econometrics-II 
   Plot 4
 </p>
 
-<p align="center">
-  Parallel coordinates
-</p>
-
 ![image](https://github.com/grazh/elec_preferences_prediction/blob/master/plots/parallel.jpg)
