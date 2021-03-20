@@ -28,7 +28,7 @@ All data was collected with the help of Administration of the Faculty of Economi
 Let's study the descriptive statistics. (Table 1)
 
 <p align="center">
-  <img width="1000" height="900" src="https://user-images.githubusercontent.com/55653514/111038709-7e30db00-843b-11eb-968b-76288c0af599.png">
+  <img width="700" height="600" src="https://user-images.githubusercontent.com/55653514/111038709-7e30db00-843b-11eb-968b-76288c0af599.png">
 </p>
 
 We can see that it's about 40% of students who've chosen Econometrics-II. 30% of students pay for the education and mean number of retests is 3.6 with the maximum of 28 retakes.
@@ -36,7 +36,7 @@ We can see that it's about 40% of students who've chosen Econometrics-II. 30% of
 Now we can analyse correlation matrix (Plot 1).
 
 <p align="center">
-  <img width="1000" height="900" src="https://user-images.githubusercontent.com/55653514/111039765-c8688b00-8440-11eb-9e5b-d8412600c8d8.png">
+  <img width="700" height="700" src="https://user-images.githubusercontent.com/55653514/111039765-c8688b00-8440-11eb-9e5b-d8412600c8d8.png">
 </p>
 
 It's shown that Econometrics-I score is highly correlated with the Econometrics-II enrollment. Also we can see group number negative correlation with academic performance just like with the choice of "Econometrics-2".
@@ -54,6 +54,18 @@ It's shown that Econometrics-I score is highly correlated with the Econometrics-
 
 Now let's study ***Plot 2***. We can see the distribution of Econometrics-I score of students who signed up for Econometrics-II. After studying both graphs we note that a noticeably larger number of enrolled students have excellent grades, meanwhile other group of students has worse grades. So, we can claim that Econometrics-I grade is correlated with econometrics-II enrollment.
 
-The next step is to the relationship between paid and budgetary forms of education, a student's group and his enrollment in the course "Econometrics-2". ***Plot 3*** shows two graphs: on the left for students on a paid basis of education and budgetary on the right. The y-axis represents the average grade for Mathematical statistics, Linear algebra-I, Probability theory and Econometrics-I. The x-axis represents the group number of a student. Markers are red for students who enrolled for Econometrics-II and blue for others. Markers alpha is 50%, so more intense crosses report about bigger number of students. After studying the figure we can note that the majority of contract students did not sign up for Econometrics-II. Also let's note that red crosses saturation is higher in the top left for budget students. At the same time blue crosses are more intense in lower right. That means that students with higher average grade from groups 301-305 are more likely to enroll for Econometrics-II than students from other groups.
+The next step is to study the relationship between paid and budgetary forms of education, a student's group and his enrollment in the course "Econometrics-2". ***Plot 3*** shows two graphs: on the left for students on a paid basis of education and budgetary on the right. The y-axis represents the average grade for Mathematical statistics, Linear algebra-I, Probability theory and Econometrics-I. The x-axis represents the group number of a student. Markers are red for students who enrolled for Econometrics-II and blue for others. Markers alpha is 50%, so more intense crosses report about bigger number of students. After studying the figure we can note that the majority of contract students did not sign up for Econometrics-II. Also let's note that red crosses saturation is higher in the top left for budget students. At the same time blue crosses are more intense in lower right. That means that students with higher average grade from groups 301-305 are more likely to enroll for Econometrics-II than students from other groups.
+
+<p align="right">
+  Plot 3
+</p>
+
+<p align="center">
+  Scatter plot for groups and average score
+</p>
 
 ![image](https://github.com/grazh/elec_preferences_prediction/blob/master/plots/contract_means.png)
+
+
+Finally, we can study the grades that students who enrolled for Econometrics-II get earlier in the university, they are marked in red in the ***Plot 4***, and student's who didn't enroll for Ecm-II are blue. There are parallel axes in this figure from left to right: the binary for Econometrics-II enrollment which is 6 for enrolled and 2 for others (for clarity), the Econometrics-I grade, the Linear algebra grade, the Mathematical statistics grade, the Probability theory grade and binary for form of education which is 6 for budget form and 2 for paid. It can be seen on the figure, that top part that matches high grades in subjects is predominantly red, that means that almost all excelent students enroll for Econometrics-2. At the same time the bottom part of the picture is 
+в то же время низы графика – синие, то есть большая часть «троечников» не записывается на интересующий нас курс. По графику сложно выделить хороший критерий разбиения, однако мы в очередной раз убедились, что среди студентов платной формы обучения очень малая доля записывается на «Эконометрику-2». Также можно предположить, что оценка 4 и 5 по «Линейной алгебре-1» хороший критерий для выделения студентов, которые записались на курс «Эконометрика-2».
